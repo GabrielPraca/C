@@ -1,0 +1,40 @@
+# Project: Sim
+# Makefile created by Dev-C++ 5.6.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Sim/Debug/FileUtils.o Sim/Debug/HttpUtils.o Sim/Debug/Main.o Sim/Debug/MemoryUtils.o Sim/Debug/StringUtils.o
+LINKOBJ  = Sim/Debug/FileUtils.o Sim/Debug/HttpUtils.o Sim/Debug/Main.o Sim/Debug/MemoryUtils.o Sim/Debug/StringUtils.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" "C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/libshlwapi.a" "C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/libwsock32.a"
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
+BIN      = Debug/Sim.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Sim/Debug/FileUtils.o: Sim/FileUtils.cpp
+	$(CPP) -c Sim/FileUtils.cpp -o Sim/Debug/FileUtils.o $(CXXFLAGS)
+
+Sim/Debug/HttpUtils.o: Sim/HttpUtils.cpp
+	$(CPP) -c Sim/HttpUtils.cpp -o Sim/Debug/HttpUtils.o $(CXXFLAGS)
+
+Sim/Debug/Main.o: Sim/Main.cpp
+	$(CPP) -c Sim/Main.cpp -o Sim/Debug/Main.o $(CXXFLAGS)
+
+Sim/Debug/MemoryUtils.o: Sim/MemoryUtils.cpp
+	$(CPP) -c Sim/MemoryUtils.cpp -o Sim/Debug/MemoryUtils.o $(CXXFLAGS)
+
+Sim/Debug/StringUtils.o: Sim/StringUtils.cpp
+	$(CPP) -c Sim/StringUtils.cpp -o Sim/Debug/StringUtils.o $(CXXFLAGS)
